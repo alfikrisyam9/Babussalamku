@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kontak - Pondok Pesantren Babussalam</title>
+    <link rel="stylesheet" href="css/navbar.css">
+
     <style>
         * {
             margin: 0;
@@ -272,19 +274,30 @@
 <body>
 
 <header>
-    <nav>
+  <nav>
         <div class="logo">
             <div class="logo-icon">🕌</div>
             <div class="logo-text">
                 <h1>Pondok Pesantren Babussalam</h1>
             </div>
         </div>
+
         <ul class="nav-menu">
             <li><a href="index.html">Beranda</a></li>
-            <li><a href="profil.html">Profil</a></li>
+
+           <li class="dropdown">
+    <a href="#" class="dropdown-toggle">Profil ▾</a>
+    <ul class="dropdown-menu">
+        <li><a href="sejarah.html">Sejarah</a></li>
+        <li><a href="pendidikan.html">Sistem Pendidikan</a></li>
+        <li><a href="pimpinan.html">Pimpinan</a></li>
+    </ul>
+</li>
+
+
             <li><a href="program.html">Program</a></li>
             <li><a href="pendaftaran.html">Pendaftaran</a></li>
-            <li><a href="kontak.html" class="active">Kontak</a></li>
+            <li><a href="kontak.html">Kontak</a></li>
         </ul>
     </nav>
 </header>
