@@ -66,6 +66,7 @@
             list-style: none;
             gap: 2.5rem;
         }
+        
 
         .nav-menu li a {
             color: #ffffff;
@@ -219,11 +220,13 @@
         .schedule-grid {
             display: grid;
             gap: 1.5rem;
+            border-image-width: auto;
+            image-orientation: center;
         }
 
         .schedule-item {
             display: grid;
-            grid-template-columns: 150px 1fr;
+            grid-template-columns: 150px 1fr 100px;
             gap: 2rem;
             padding: 1.5rem;
             background: #f8f9fa;
@@ -246,6 +249,13 @@
         .schedule-activity {
             color: #555;
             font-size: 1.05rem;
+        }
+
+        .schedule-image {
+            align-self: center;
+            height: auto;
+            max-width: 100px;
+            position: relative;
         }
 
         /* Footer */
@@ -429,46 +439,57 @@
                     <div class="schedule-item">
                         <div class="schedule-time">04.00 - 05.00</div>
                         <div class="schedule-activity">Qiyamul Lail & Sholat Subuh Berjamaah</div>
+                        <img src="img/subuh.jpg" alt="conto" class="schedule-image">
                     </div>
                     <div class="schedule-item">
                         <div class="schedule-time">05.00 - 06.30</div>
                         <div class="schedule-activity">Setoran Hafalan Al-Qur'an & Tadarus</div>
+                        <img src="img/tadarus.jpg" alt="conto" class="schedule-image">
                     </div>
                     <div class="schedule-item">
                         <div class="schedule-time">06.30 - 07.00</div>
                         <div class="schedule-activity">Persiapan & Sarapan</div>
+                        <img src="img/sarapan.jpg" alt="conto" class="schedule-image">
                     </div>
                     <div class="schedule-item">
                         <div class="schedule-time">07.00 - 12.00</div>
                         <div class="schedule-activity">Kegiatan Belajar Madrasah Diniyah</div>
+                        <img src="img/dta.jpg" alt="conto" class="schedule-image">
                     </div>
                     <div class="schedule-item">
                         <div class="schedule-time">12.00 - 13.00</div>
                         <div class="schedule-activity">Sholat Dzuhur & Istirahat</div>
+                        <img src="img/subuh.jpg" alt="conto" class="schedule-image">
                     </div>
                     <div class="schedule-item">
                         <div class="schedule-time">13.00 - 15.30</div>
                         <div class="schedule-activity">Pembelajaran Sore & Kajian Kitab</div>
+                        <img src="img/ngajisore.jpg" alt="conto" class="schedule-image">
                     </div>
                     <div class="schedule-item">
                         <div class="schedule-time">15.30 - 17.00</div>
                         <div class="schedule-activity">Sholat Ashar & Kegiatan Ekstrakurikuler</div>
+                        <img src="img/ekskul.jpg" alt="conto" class="schedule-image">
                     </div>
                     <div class="schedule-item">
                         <div class="schedule-time">17.00 - 18.30</div>
                         <div class="schedule-activity">Istirahat, Mandi & Persiapan Maghrib</div>
+                        <img src="img/subuh.jpg" alt="conto" class="schedule-image">
                     </div>
                     <div class="schedule-item">
                         <div class="schedule-time">18.30 - 19.30</div>
                         <div class="schedule-activity">Sholat Maghrib & Isya Berjamaah</div>
+                        <img src="img/subuh.jpg" alt="conto" class="schedule-image">
                     </div>
                     <div class="schedule-item">
                         <div class="schedule-time">19.30 - 21.00</div>
                         <div class="schedule-activity">Belajar Malam & Muroja'ah Hafalan</div>
+                        <img src="img/subuh.jpg" alt="conto" class="schedule-image">
                     </div>
                     <div class="schedule-item">
                         <div class="schedule-time">21.00 - 04.00</div>
                         <div class="schedule-activity">Istirahat Malam</div>
+                        <img src="img/tidur.jpg" alt="conto" class="schedule-image">
                     </div>
                 </div>
             </div>
