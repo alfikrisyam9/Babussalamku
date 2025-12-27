@@ -4,268 +4,55 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kontak - Pondok Pesantren Babussalam</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Roboto, sans-serif; line-height: 1.6; background: #f0f2f5; color: #333; }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-        }
-
-        /* Header & Navigation */
-        header {
-            background: linear-gradient(135deg, #0a1929 0%, #1e3a5f 100%);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 5%;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .logo-icon {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #ffd700 0%, #ffed4e 100%);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-            font-weight: bold;
-            color: #0a1929;
-        }
-
-        .logo-text h1 {
-            color: #ffffff;
-            font-size: 1.3rem;
-            font-weight: 600;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2.5rem;
-        }
-
-        .nav-menu li a {
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-            position: relative;
-        }
-
-        .nav-menu li a:hover {
-            color: #ffd700;
-        }
-
-        .nav-menu li a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: #ffd700;
-            transition: width 0.3s;
-        }
-
-        .nav-menu li a:hover::after {
-            width: 100%;
-        }
-
-        .nav-menu li a.active {
-            color: #ffd700;
-        }
+        /* Navigation */
+        header { background: linear-gradient(135deg, #0a1929 0%, #1e3a5f 100%); position: fixed; width: 100%; top: 0; z-index: 1000; box-shadow: 0 4px 12px rgba(0,0,0,0.15); }
+        nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 5%; max-width: 1400px; margin: 0 auto; }
+        .logo { display: flex; align-items: center; gap: 15px; }
+        .logo-icon { width: 45px; height: 45px; background: #ffd700; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 22px; color: #0a1929; }
+        .logo-text h1 { color: #fff; font-size: 1.2rem; }
+        .nav-menu { display: flex; list-style: none; gap: 2rem; }
+        .nav-menu a { color: #fff; text-decoration: none; font-weight: 500; transition: 0.3s; }
+        .nav-menu a:hover, .nav-menu a.active { color: #ffd700; }
 
         /* Page Header */
-        .page-header {
-            margin-top: 80px;
-            background: linear-gradient(135deg, #0a1929 0%, #1e3a5f 100%);
-            padding: 4rem 5%;
-            text-align: center;
-            color: white;
-        }
+        .page-header { margin-top: 75px; background: linear-gradient(rgba(10,25,41,0.9), rgba(10,25,41,0.9)), url('https://images.unsplash.com/photo-1542810634-7bc2770ad73a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'); background-size: cover; background-position: center; padding: 5rem 5%; text-align: center; color: white; }
 
-        .page-header h2 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-        }
+        /* Main Content Layout */
+        .container { max-width: 1200px; margin: 0 auto; padding: 4rem 5%; }
+        .contact-wrapper { display: grid; grid-template-columns: 1fr 1.5fr; gap: 3rem; }
 
-        .page-header p {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
+        /* Info Cards */
+        .info-side { display: flex; flex-direction: column; gap: 1.5rem; }
+        .info-card { background: white; padding: 2rem; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); transition: 0.3s; border-left: 5px solid #ffd700; }
+        .info-card:hover { transform: translateX(10px); }
+        .info-card i { font-size: 2rem; color: #1e3a5f; margin-bottom: 1rem; display: block; }
+        .info-card h3 { margin-bottom: 0.5rem; color: #0a1929; }
 
-        /* Content Section */
-        .contact-section {
-            padding: 4rem 5%;
-            background: #f8f9fa;
-            min-height: calc(100vh - 400px);
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
-        .contact-intro {
-            text-align: center;
-            color: #555;
-            font-size: 1.1rem;
-            margin-bottom: 3rem;
-            line-height: 1.8;
-        }
-
-        /* Contact Cards */
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .contact-card {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .contact-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(10, 25, 41, 0.2);
-        }
-
-        .contact-icon {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(135deg, #0a1929 0%, #1e3a5f 100%);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-size: 2.5rem;
-            border: 4px solid #ffd700;
-        }
-
-        .contact-card h3 {
-            color: #0a1929;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .contact-card p {
-            color: #555;
-            line-height: 1.8;
-            font-size: 1.05rem;
-        }
-
-        .contact-card a {
-            color: #1e3a5f;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-
-        .contact-card a:hover {
-            color: #ffd700;
-        }
+        /* Form Styling */
+        .form-side { background: white; padding: 3rem; border-radius: 25px; box-shadow: 0 15px 40px rgba(0,0,0,0.1); position: relative; overflow: hidden; }
+        .form-side::before { content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 8px; background: #ffd700; }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: #1e3a5f; }
+        .form-group input, .form-group textarea { width: 100%; padding: 15px; border: 2px solid #eee; border-radius: 12px; font-size: 1rem; transition: 0.3s; }
+        .form-group input:focus, .form-group textarea:focus { border-color: #ffd700; outline: none; background: #fffcf0; }
+        .btn-send { background: #0a1929; color: white; width: 100%; padding: 15px; border: none; border-radius: 12px; font-weight: bold; font-size: 1.1rem; cursor: pointer; transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 10px; }
+        .btn-send:hover { background: #ffd700; color: #0a1929; transform: translateY(-3px); box-shadow: 0 5px 15px rgba(255,215,0,0.4); }
 
         /* Map Section */
-        .map-section {
-            margin-top: 3rem;
-            background: white;
-            padding: 2.5rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
+        .map-section { margin-top: 4rem; border-radius: 25px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 8px solid white; }
 
-        .map-section h3 {
-            color: #0a1929;
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            text-align: center;
-            border-bottom: 3px solid #ffd700;
-            padding-bottom: 1rem;
-            display: inline-block;
-            width: 100%;
-        }
+        /* WhatsApp Button */
+        .whatsapp-btn { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; padding: 15px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 10px; box-shadow: 0 10px 20px rgba(37,211,102,0.3); z-index: 1000; transition: 0.3s; }
+        .whatsapp-btn:hover { transform: scale(1.1); background: #20ba5a; }
 
-        .map-placeholder {
-            width: 100%;
-            height: 350px;
-            background: linear-gradient(135deg, rgba(10, 25, 41, 0.05) 0%, rgba(30, 58, 95, 0.05) 100%);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-            font-size: 1.1rem;
-            border: 2px dashed #ddd;
-        }
-
-        /* Footer */
-        footer {
-            background: linear-gradient(135deg, #0a1929 0%, #1e3a5f 100%);
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 3rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-menu {
-                gap: 1.5rem;
-                font-size: 0.9rem;
-            }
-
-            .page-header h2 {
-                font-size: 2rem;
-            }
-
-            .page-header p {
-                font-size: 1rem;
-            }
-
-            .logo-text h1 {
-                font-size: 1rem;
-            }
-
-            .contact-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .map-section {
-                padding: 1.5rem;
-            }
-
-            .map-placeholder {
-                height: 250px;
-            }
+        @media (max-width: 900px) {
+            .contact-wrapper { grid-template-columns: 1fr; }
+            .nav-menu { display: none; } /* Untuk mobile pengerjaan lanjut bisa pakai hamburger menu */
         }
     </style>
 </head>
@@ -275,9 +62,7 @@
     <nav>
         <div class="logo">
             <div class="logo-icon">🕌</div>
-            <div class="logo-text">
-                <h1>Pondok Pesantren Babussalam</h1>
-            </div>
+            <div class="logo-text"><h1>Babussalam</h1></div>
         </div>
         <ul class="nav-menu">
             <li><a href="index.html">Beranda</a></li>
@@ -290,77 +75,83 @@
 </header>
 
 <div class="page-header">
-    <h2>Hubungi Kami</h2>
-    <p>Kami siap melayani pertanyaan dan informasi Anda</p>
+    <h2 style="font-size: 3rem;">Hubungi Kami</h2>
+    <p style="font-size: 1.2rem; max-width: 600px; margin: 0 auto;">Silaturahmi adalah kunci keberkahan. Kami menunggu pesan dan kunjungan Anda ke pondok kami.</p>
 </div>
 
-<main>
-    <section class="contact-section">
-        <div class="container">
-            
-            <p class="contact-intro">
-                Jika Anda memiliki pertanyaan atau membutuhkan informasi lebih lanjut mengenai 
-                Pondok Pesantren Babussalam, jangan ragu untuk menghubungi kami melalui kontak 
-                di bawah ini. Kami akan dengan senang hati membantu Anda.
-            </p>
-
-            <!-- Contact Cards -->
-            <div class="contact-grid">
-                
-                <!-- Alamat -->
-                <div class="contact-card">
-                    <div class="contact-icon">📍</div>
-                    <h3>Alamat Pondok</h3>
-                    <p>
-                        Jl. Pendidikan Raya No. 123<br>
-                        Kelurahan Babussalam<br>
-                        Kecamatan Cipayung<br>
-                        Jakarta Timur, DKI Jakarta<br>
-                        13850
-                    </p>
-                </div>
-
-                <!-- No HP / WhatsApp -->
-                <div class="contact-card">
-                    <div class="contact-icon">📱</div>
-                    <h3>Telepon / WhatsApp</h3>
-                    <p>
-                        <a href="tel:+6281234567890">+62 812-3456-7890</a><br>
-                        <a href="tel:+6281234567891">+62 812-3456-7891</a><br><br>
-                        <small style="color: #999;">Senin - Jumat: 08.00 - 16.00 WIB<br>
-                        Sabtu: 08.00 - 12.00 WIB</small>
-                    </p>
-                </div>
-
-                <!-- Email -->
-                <div class="contact-card">
-                    <div class="contact-icon">✉️</div>
-                    <h3>Email</h3>
-                    <p>
-                        <a href="mailto:info@babussalam.ac.id">info@babussalam.ac.id</a><br>
-                        <a href="mailto:pendaftaran@babussalam.ac.id">pendaftaran@babussalam.ac.id</a><br><br>
-                        <small style="color: #999;">Kami akan membalas email Anda<br>
-                        dalam 1x24 jam</small>
-                    </p>
-                </div>
-
+<main class="container">
+    <div class="contact-wrapper">
+        <div class="info-side">
+            <div class="info-card">
+                <i class="fas fa-map-marked-alt"></i>
+                <h3>Lokasi Utama</h3>
+                <p>Jl. Pendidikan Raya No. 123, Kel. Babussalam, Kec. Cipayung, Jakarta Timur</p>
             </div>
-
-            <!-- Map Section -->
-            <div class="map-section">
-                <h3>Lokasi Kami</h3>
-                <div class="map-placeholder">
-                    <p>🗺️ Peta lokasi dapat ditambahkan di sini<br>
-                    (Google Maps Embed)</p>
+            <div class="info-card">
+                <i class="fas fa-headset"></i>
+                <h3>Layanan Informasi</h3>
+                <p>+62 812-3456-7890 (Call Center)<br>+62 812-3456-7891 (Humas)</p>
+            </div>
+            <div class="info-card">
+                <i class="fas fa-share-alt"></i>
+                <h3>Media Sosial</h3>
+                <div style="display: flex; gap: 15px; margin-top: 10px;">
+                    <a href="#" style="color: #1e3a5f; font-size: 1.5rem;"><i class="fab fa-facebook"></i></a>
+                    <a href="#" style="color: #1e3a5f; font-size: 1.5rem;"><i class="fab fa-instagram"></i></a>
+                    <a href="#" style="color: #1e3a5f; font-size: 1.5rem;"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
-
         </div>
-    </section>
+
+        <div class="form-side">
+            <h2 style="margin-bottom: 1rem; color: #0a1929;">Kirim Pesan</h2>
+            <p style="margin-bottom: 2rem; color: #666;">Silakan isi formulir di bawah ini, admin kami akan segera menghubungi Anda kembali.</p>
+            
+            <form action="#">
+                <div class="form-group">
+                    <label>Nama Lengkap</label>
+                    <input type="text" placeholder="Contoh: Ahmad Fauzi" required>
+                </div>
+                <div class="form-group">
+                    <label>Alamat Email</label>
+                    <input type="email" placeholder="email@anda.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Kategori Pertanyaan</label>
+                    <select style="width: 100%; padding: 15px; border: 2px solid #eee; border-radius: 12px;">
+                        <option>Informasi Pendaftaran</option>
+                        <option>Sumbangan/Infaq</option>
+                        <option>Kerjasama Akademik</option>
+                        <option>Lainnya</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Pesan Anda</label>
+                    <textarea rows="4" placeholder="Tuliskan detail pertanyaan Anda..." required></textarea>
+                </div>
+                <button type="submit" class="btn-send">
+                    <i class="fas fa-paper-plane"></i> Kirim Sekarang
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="map-section">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15862.668579043217!2d106.8913!3d-6.30!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTgnMDAuMCJTIDEwNsKwNTMnMjguNyJF!5e0!3m2!1sid!2sid!4v1620000000000!5m2!1sid!2sid" 
+            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+        </iframe>
+    </div>
 </main>
 
+<a href="https://wa.me/6281234567890" class="whatsapp-btn" target="_blank">
+    <i class="fab fa-whatsapp"></i> Tanya via WhatsApp
+</a>
+
 <footer>
-    <p>&copy; 2025 Pondok Pesantren Babussalam. All Rights Reserved.</p>
+    <div style="background: #0a1929; color: white; text-align: center; padding: 2rem;">
+        <p>&copy; 2025 Pondok Pesantren Babussalam. All Rights Reserved.</p>
+    </div>
 </footer>
 
 </body>
