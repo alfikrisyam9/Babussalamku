@@ -2,135 +2,52 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sejarah - Pondok Pesantren Babussalam</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/navbar.css">
+    
+    <!-- Google Fonts for Typography -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-    <style>
-        body {
-            background-color: #f8f9fa;
-            /* Pola islami halus untuk latar belakang agar tidak polos */
-            background-image: url('https://www.transparenttextures.com/patterns/islamic-art.png');
-        }
-
-        .main-content {
-            padding: 60px 20px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .history-card {
-            background: #ffffff;
-            max-width: 850px;
-            width: 100%;
-            padding: 80px 60px;
-            border-radius: 8px;
-            box-shadow: 0 15px 50px rgba(0,0,0,0.1);
-            position: relative;
-            border-top: 8px solid #002d55; /* Aksen warna utama di atas */
-        }
-
-        /* Ornamen di setiap sudut kartu */
-        .history-card::before {
-            content: "";
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            right: 20px;
-            bottom: 20px;
-            border: 1px solid #d4af37;
-            pointer-events: none;
-            opacity: 0.3;
-        }
-
-        .page-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 42px;
-            color: #1a1a1a;
-            text-align: center;
-            margin-bottom: 40px;
-            position: relative;
-        }
-
-        /* Garis dekoratif di bawah judul 'Sejarah' */
-        .page-title::after {
-            content: "";
-            display: block;
-            width: 80px;
-            height: 3px;
-            background: #d4af37;
-            margin: 15px auto 0;
-        }
-
-        .history-body {
-            font-family: 'Lora', serif;
-            font-size: 19px;
-            line-height: 2.1;
-            color: #333;
-            text-align: justify;
-        }
-
-        /* Gaya huruf pertama (Drop Cap) */
-        .first-letter::first-letter {
-            font-family: 'Playfair Display', serif;
-            float: left;
-            font-size: 80px;
-            line-height: 60px;
-            padding-top: 10px;
-            padding-right: 15px;
-            color: #002d55;
-            font-weight: bold;
-        }
-
-        .history-body p {
-            margin-bottom: 30px;
-        }
-
-        /* Efek teks tebal yang elegan */
-        .history-body strong {
-            color: #002d55;
-            font-weight: 600;
-        }
-
-        /* Simbol penutup di bawah teks */
-        .ornament-footer {
-            text-align: center;
-            margin-top: 50px;
-            color: #d4af37;
-            font-size: 32px;
-            opacity: 0.6;
-        }
-
-        /* Responsif untuk HP */
-        @media (max-width: 600px) {
-            .history-card { padding: 40px 25px; }
-            .page-title { font-size: 32px; }
-            .history-body { font-size: 17px; }
-        }
-    </style>
+    
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/pages.css">
 </head>
-<body>
+<body class="page-sejarah">
 
 <header>
     <nav>
         <div class="logo">
             <div class="logo-icon">🕌</div>
-            <div class="logo-text"><h1>Pondok Pesantren Babussalam</h1></div>
+            <div class="logo-text">
+                <h1>Pondok Pesantren Babussalam</h1>
+            </div>
         </div>
+
         <ul class="nav-menu">
             <li><a href="index.html">Beranda</a></li>
+
             <li class="dropdown">
-                <a href="#" class="no-click">Profil ▾</a>
+                <button class="dropdown-toggle" type="button">
+                    Profil ▾
+                </button>
                 <ul class="dropdown-menu">
                     <li><a href="sejarah.html" class="active">Sejarah</a></li>
                     <li><a href="pendidikan.html">Sistem Pendidikan</a></li>
-                    <li><a href="pimpinan.html">Pimpinan</a></li>
+                    <li><a href="pimpinan.html">Visi & Misi</a></li>
                 </ul>
             </li>
+
             <li><a href="program.html">Program</a></li>
             <li><a href="pendaftaran.html">Pendaftaran</a></li>
             <li><a href="kontak.html">Kontak</a></li>
         </ul>
+
+        <!-- Hamburger Menu -->
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
     </nav>
 </header>
 
@@ -144,7 +61,7 @@
             </p>
 
             <p>
-                Pondok Pesantren Babussalam terletak di Kp. Calingcing Kidul Desa Calingcing, Kecamatan Sukahening, Kabupaten Tasikmalaya, Provinsi Jawa Barat. Dengan didukung oleh lingkungan yang asri di dekat pegunungan, Pondok Pesantren Babussalam berupaya untuk mencetak manusia yang <em>bertafaquh Fiddin</em> demi mencetak <strong>Ulama’ul ‘Amilin Imamal Muttain</strong>, serta menjadi kader pemimpin umat/bangsa, selalu mengupayakan terciptanya pendidikan santri yang memiliki jiwa keikhlasan, kesederhanaan, kemandirian, ukhuwah Islamiyah, kebebasan berfikir dan berperilaku atas dasar Al-Quran dan Sunnah Rasulullah SAW untuk meningkatkan taqwa kepada Allah SWT.
+                Pondok Pesantren Babussalam terletak di Kp. Calingcing Kidul Desa Calingcing, Kecamatan Sukahening, Kabupaten Tasikmalaya, Provinsi Jawa Barat. Dengan didukung oleh lingkungan yang asri di dekat pegunungan, Pondok Pesantren Babussalam berupaya untuk mencetak manusia yang <em>bertafaquh fiddin</em> demi mencetak <strong>Ulama'ul 'Amilin Imamal Muttaqin</strong>, serta menjadi kader pemimpin umat/bangsa, selalu mengupayakan terciptanya pendidikan santri yang memiliki jiwa keikhlasan, kesederhanaan, kemandirian, ukhuwah Islamiyah, kebebasan berfikir dan berperilaku atas dasar Al-Quran dan Sunnah Rasulullah SAW untuk meningkatkan taqwa kepada Allah SWT.
             </p>
 
             <p>
@@ -154,6 +71,10 @@
             <p>
                 Di Pondok Pesantren Babussalam, pengelolaan pendidikan dan pengajaran serta kegiatan santri sehari-hari dilaksanakan oleh para guru/ustadz dengan latar belakang pendidikan dari berbagai perguruan tinggi dan pesantren salafiah dan modern, yang semuanya tinggal di asrama dan secara penuh mengawasi serta membimbing santri dalam proses kegiatan belajar mengajar dan kepengasuhan santri.
             </p>
+
+            <p>
+                Sejak berdiri hingga kini, Pondok Pesantren Babussalam terus berkembang dan berkomitmen untuk memberikan pendidikan Islam yang berkualitas, menghasilkan lulusan yang tidak hanya cerdas secara intelektual tetapi juga kuat dalam iman dan berakhlak mulia, siap mengabdi kepada agama, bangsa, dan negara.
+            </p>
         </div>
 
         <div class="ornament-footer">
@@ -162,5 +83,11 @@
     </article>
 </main>
 
+<footer>
+    <p>&copy; 2025 Pondok Pesantren Babussalam. All Rights Reserved.</p>
+</footer>
+
+<!-- Main JavaScript -->
+<script src="js/main.js"></script>
 </body>
 </html>

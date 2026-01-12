@@ -1,53 +1,57 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pondok Pesantren Babussalam</title>
+    <meta name="description" content="Pondok Pesantren Babussalam - Membentuk Generasi Qurani yang Berakhlakul Karimah">
+    <title>Pondok Pesantren Babussalam - Beranda</title>
    
+    <!-- Main CSS -->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/navbar.css">
-
+    <link rel="stylesheet" href="css/pages.css">
 </head>
-<body>
+<body class="page-beranda">
     <header>
-    <nav>
-        <div class="logo">
-            <div class="logo-icon">🕌</div>
-            <div class="logo-text">
-                <h1>Pondok Pesantren Babussalam</h1>
+        <nav>
+            <div class="logo">
+                <div class="logo-icon">🕌</div>
+                <div class="logo-text">
+                    <h1>Pondok Pesantren Babussalam</h1>
+                </div>
             </div>
-        </div>
 
-        <ul class="nav-menu">
-            <li><a href="index.html">Beranda</a></li>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Beranda</a></li>
 
-            <li class="dropdown">
-                <button class="dropdown-toggle" type="button">
-                    Profil ▾
-                </button>
-                <ul class="dropdown-menu">
-                    <li><a href="sejarah.html">Sejarah</a></li>
-                    <li><a href="pendidikan.html">Sistem Pendidikan</a></li>
-                    <li><a href="pimpinan.html">Pimpinan</a></li>
-                </ul>
-            </li>
+                <li class="dropdown">
+                    <button class="dropdown-toggle" type="button">
+                        Profil ▾
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="sejarah.html">Sejarah</a></li>
+                        <li><a href="pendidikan.html">Sistem Pendidikan</a></li>
+                        <li><a href="pimpinan.html">Visi & Misi</a></li>
+                    </ul>
+                </li>
 
-            <li><a href="program.html">Program</a></li>
-            <li><a href="pendaftaran.html">Pendaftaran</a></li>
-            <li><a href="kontak.html">Kontak</a></li>
-        </ul>
-    </nav>
-</header>
+                <li><a href="program.html">Program</a></li>
+                <li><a href="pendaftaran.html">Pendaftaran</a></li>
+                <li><a href="kontak.html">Kontak</a></li>
+            </ul>
 
-
+            <!-- Hamburger Menu -->
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
     </header>
 
     <section class="hero" id="beranda">
         <div class="hero-content">
             <h2>Selamat Datang di Pondok Pesantren Babussalam</h2>
-                 <img src="img/logo.png" alt="Logo Pondok Pesantren Babussalam">
+            <img src="img/logo.png" alt="Logo Pondok Pesantren Babussalam" onerror="this.style.display='none'">
             <p>Membentuk Generasi Qurani yang Berakhlakul Karimah</p>
         </div>
     </section>
@@ -82,5 +86,7 @@
         <p>&copy; 2025 Pondok Pesantren Babussalam. All Rights Reserved.</p>
     </footer>
 
+    <!-- Main JavaScript -->
+    <script src="js/main.js"></script>
 </body>
 </html>
