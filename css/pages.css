@@ -93,6 +93,85 @@
     font-size: 1.3rem;
 }
 
+/* ===================================
+   TAMBAHAN FITUR DROPDOWN (ACCORDION)
+   Letakkan di file pages.css
+   =================================== */
+
+/* Hapus padding default li agar rapi saat jadi tombol */
+.program-content ul li.program-item {
+    padding-left: 0; 
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+/* Hilangkan panah statis (▸) khusus untuk item dropdown agar tidak double */
+.program-content ul li.program-item::before {
+    content: none;
+}
+
+/* Styling Tombol Klik */
+.toggle-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 12px 0;
+    cursor: pointer;
+    font-weight: 600;
+    color: #0a1929;
+    transition: all 0.3s ease;
+}
+
+.toggle-btn:hover {
+    color: #d4af37; /* Warna Emas saat hover */
+    padding-left: 5px; /* Efek geser sedikit */
+}
+
+/* Ikon Panah (▼) */
+.toggle-icon {
+    font-size: 0.8rem;
+    transition: transform 0.3s ease;
+    color: #d4af37;
+}
+
+/* Putar panah saat aktif */
+.program-item.active .toggle-icon {
+    transform: rotate(180deg);
+}
+
+/* Bagian Penjelasan (Isi Dropdown) */
+.definition {
+    display: none; /* INI PENTING: Sembunyikan konten secara default */
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    background: #f8f9fa;
+    border-left: 3px solid #ffd700;
+    border-radius: 0 5px 5px 0;
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.6;
+    text-align: left;
+}
+
+/* Tampilkan isi saat class 'active' ditambahkan oleh JS */
+.program-item.active .definition {
+    display: block;
+    animation: slideDown 0.3s ease-out;
+}
+
+/* Animasi Muncul Halus */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
 /* Schedule Section */
 .schedule-section {
     margin-top: 4rem;
