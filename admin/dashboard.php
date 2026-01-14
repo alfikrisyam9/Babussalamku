@@ -161,11 +161,6 @@ $total = mysqli_num_rows($query);
          TOMBOL EXPORT
     ====================== -->
         <div class="mb-3">
-            <a href="export_excel.php?keyword=<?php echo urlencode($keyword); ?>&status=<?php echo urlencode($status); ?>"
-                class="btn btn-success">
-                Export Excel
-            </a>
-
             <a href="export_pdf.php?keyword=<?php echo urlencode($keyword); ?>&status=<?php echo urlencode($status); ?>"
                 target="_blank"
                 class="btn btn-danger">
