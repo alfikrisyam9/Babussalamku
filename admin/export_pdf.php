@@ -1,13 +1,18 @@
 <?php
 session_start();
 if (!isset($_SESSION['admin'])) {
-    exit("Akses ditolak");
+    header("Location: login.php");
+    exit;
 }
 
 include "../php/koneksi.php";
+require_once "../lib/fpdf/fpdf.php";
 
-$keyword = isset($_GET['keyword']) ? $_GET['keyword'] : '';
-$status  = isset($_GET['status']) ? $_GET['status'] : '';
+// ======================
+// AMBIL FILTER
+// ======================
+$keyword = isset($_GET['keyword']) ? mysqli_real_escape_string($koneksi, $_GET['keyword']) : '';
+$status  = isset($_GET['status'])  ? mysqli_real_escape_string($koneksi, $_GET['status'])  : '';
 
 $sql = "SELECT * FROM pendaftaran WHERE 1";
 
@@ -16,56 +21,54 @@ if (!empty($keyword)) {
 }
 
 if (!empty($status)) {
-    $sql .= " AND status='$status'";
+    $sql .= " AND status = '$status'";
 }
 
 $sql .= " ORDER BY id DESC";
 $query = mysqli_query($koneksi, $sql);
-?>
 
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Laporan Pendaftaran</title>
-    <style>
-        body { font-family: Arial; }
-        h2 { text-align: center; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { border: 1px solid #000; padding: 6px; font-size: 12px; }
-        th { background: #eee; }
-    </style>
-</head>
-<body onload="window.print()">
+// ======================
+// BUAT PDF
+// ======================
+$pdf = new FPDF('L', 'mm', 'A4');
+$pdf->AddPage();
 
-<h2>Laporan Pendaftaran Santri<br>Pondok Pesantren Babussalam</h2>
+// Judul
+$pdf->SetFont('Arial', 'B', 14);
+$pdf->Cell(0, 10, 'Laporan Pendaftaran Santri', 0, 1, 'C');
+$pdf->SetFont('Arial', '', 11);
+$pdf->Cell(0, 8, 'Pondok Pesantren Babussalam', 0, 1, 'C');
 
-<table>
-<tr>
-    <th>No</th>
-    <th>Nama</th>
-    <th>JK</th>
-    <th>Ayah</th>
-    <th>Ibu</th>
-    <th>No HP</th>
-    <th>Status</th>
-</tr>
+$pdf->Ln(5);
 
-<?php
+// Header tabel
+$pdf->SetFont('Arial', 'B', 10);
+$pdf->Cell(10, 8, 'No', 1, 0, 'C');
+$pdf->Cell(45, 8, 'Nama Lengkap', 1);
+$pdf->Cell(20, 8, 'JK', 1, 0, 'C');
+$pdf->Cell(45, 8, 'Nama Ayah', 1);
+$pdf->Cell(45, 8, 'Nama Ibu', 1);
+$pdf->Cell(35, 8, 'No HP', 1);
+$pdf->Cell(30, 8, 'Status', 1, 0, 'C');
+$pdf->Ln();
+
+// Isi tabel
+$pdf->SetFont('Arial', '', 10);
 $no = 1;
+
 while ($row = mysqli_fetch_assoc($query)) {
-    echo "<tr>
-            <td>".$no++."</td>
-            <td>".$row['nama_lengkap']."</td>
-            <td>".$row['jenis_kelamin']."</td>
-            <td>".$row['nama_ayah']."</td>
-            <td>".$row['nama_ibu']."</td>
-            <td>".$row['no_hp']."</td>
-            <td>".$row['status']."</td>
-          </tr>";
+    $pdf->Cell(10, 8, $no++, 1, 0, 'C');
+    $pdf->Cell(45, 8, $row['nama_lengkap'], 1);
+    $pdf->Cell(20, 8, $row['jenis_kelamin'], 1, 0, 'C');
+    $pdf->Cell(45, 8, $row['nama_ayah'], 1);
+    $pdf->Cell(45, 8, $row['nama_ibu'], 1);
+    $pdf->Cell(35, 8, $row['no_hp'], 1);
+    $pdf->Cell(30, 8, ucfirst($row['status']), 1, 0, 'C');
+    $pdf->Ln();
 }
-?>
 
-</table>
-
-</body>
-</html>
+// ======================
+// OUTPUT PDF (DOWNLOAD)
+// ======================
+$pdf->Output('D', 'laporan_pendaftaran_santri.pdf');
+exit;
