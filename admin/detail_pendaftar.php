@@ -35,6 +35,12 @@ if (!$row) {
 
         <a href="dashboard.php" class="btn btn-secondary mb-3">← Kembali</a>
 
+        <a href="cetak_detail_pdf.php?id=<?= $row['id']; ?>"
+            target="_blank"
+            class="btn btn-danger mb-3 ms-2">
+            🖨️ Cetak PDF
+        </a>
+
         <div class="card shadow">
             <div class="card-header bg-primary text-white">
                 <h5 class="mb-0">Detail Pendaftar Santri</h5>
